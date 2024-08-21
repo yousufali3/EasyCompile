@@ -4,6 +4,7 @@ import { config } from "dotenv";
 import cookieParser from "cookie-parser";
 import { dbConnect } from "./utils/dbConnect.js";
 import userRouter from "./routes/userRoutes.js";
+import compilerRoutes from "./routes/compilerRoutes.js";
 
 const app = express();
 
@@ -12,7 +13,7 @@ app.use(cookieParser());
 app.use(cors({ credentials: true, origin: "*" }));
 
 app.use("/user", userRouter);
-
+app.use("/compiler", compilerRoutes);
 config();
 dbConnect();
 
