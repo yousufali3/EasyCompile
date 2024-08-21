@@ -19,8 +19,12 @@ export const saveCode = async (req, res) => {
     isAuthenticated = true;
   }
 
-  if (!fullCode.html && !fullCode.css && !fullCode.javascript) {
-    return res.status(400).send({ message: "Code cannot be blank!" });
+  try {
+    if (!fullCode.html && !fullCode.css && !fullCode.javascript) {
+      return res.status(400).send({ message: "Code cannot be blank!" });
+    }
+  } catch (error) {
+    return res.status(400).send({ message: "Invalid code!" });
   }
   try {
     const newCode = await Code.create({
