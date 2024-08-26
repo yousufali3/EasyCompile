@@ -6,7 +6,7 @@ import {
   userDetails,
 } from "../controllers/userController.js";
 import { verifyToken } from "../middlewares/verifyToken.js";
-// import { getMyCodes } from "../controllers/compilerController";
+import { getMyCodes } from "../controllers/compilerController.js";
 
 const userRouter = express.Router();
 
@@ -15,6 +15,6 @@ userRouter.post("/login", login);
 userRouter.post("/logout", logout);
 
 userRouter.get("/user-details", verifyToken, userDetails);
-// userRouter.get("/my-codes", verifyToken, getMyCodes);
+userRouter.get("/my-codes", verifyToken, getMyCodes);
 
 export default userRouter;
