@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "http://localhost:5173", // Replace with your frontend's origin
+    origin: "https://easycompile.onrender.com", // Replace with your frontend's origin
     credentials: true, // If you need to send cookies or authentication headers
   })
 );
